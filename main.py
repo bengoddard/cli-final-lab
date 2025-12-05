@@ -1,7 +1,8 @@
 import argparse
-from lib.utils import add_user, add_project, add_task, list_projects, list_tasks, complete_project, complete_task
+from lib.utils import add_user, add_project, add_task, list_projects, list_tasks, complete_project, complete_task, load_state
 
 def main():
+    load_state()
     parser = argparse.ArgumentParser(description="Project Manager CLI")
     subparsers = parser.add_subparsers()
 
@@ -18,6 +19,7 @@ def main():
     add_project_parser.set_defaults(func=add_project)
 
     add_task_parser = subparsers.add_parser("add-task", help="Add a new task to a project")
+    add_task_parser.add_argument("user")
     add_task_parser.add_argument("project")
     add_task_parser.add_argument("title")
     add_task_parser.add_argument("status")
@@ -29,6 +31,7 @@ def main():
     list_project_parser.set_defaults(func=list_projects)
 
     list_task_parser = subparsers.add_parser("list-tasks", help="List all tasks in a project")
+    list_task_parser.add_argument("user")
     list_task_parser.add_argument("project")
     list_task_parser.set_defaults(func=list_tasks)
 
@@ -38,6 +41,7 @@ def main():
     complete_project_parser.set_defaults(func=complete_project)
 
     complete_task_parser = subparsers.add_parser("complete-task", help="Complete a task")
+    complete_task_parser.add_argument("user")
     complete_task_parser.add_argument("project")
     complete_task_parser.add_argument("title")
     complete_task_parser.set_defaults(func=complete_task)
