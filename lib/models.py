@@ -1,6 +1,6 @@
 
 
-
+"""Class User is used to create users and to add projects to users"""
 class User:
     def __init__(self, name, email):
         self.name = name
@@ -11,7 +11,7 @@ class User:
         self.projects.append(project)
         print(f"Project '{project.title}' added to {self.name}.")
 
-
+"""Class Project is used to create projects, to add tasks to projects, and to mark projects as complete"""
 class Project:
     def __init__(self, title, description, due_date):
         self.title = title
@@ -28,7 +28,7 @@ class Project:
         self.completed = True
         print(f"Project '{self.title}' completed.")
 
-
+"""Class Task is used to create tasks and to mark tasks as complete"""
 class Task:
     def __init__(self, title, status, assigned_to):
         self.title = title
