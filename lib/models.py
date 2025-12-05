@@ -20,7 +20,7 @@ class Project:
         self.tasks = []
         self.completed = False
 
-    def add_tasks(self, task):
+    def add_task(self, task):
         self.tasks.append(task)
         print(f"Task '{task.title}' added to {self.title}.")
 
